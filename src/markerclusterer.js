@@ -357,6 +357,8 @@ MarkerClusterer.prototype.getMaxZoom = function() {
 MarkerClusterer.prototype.calculator_ = function(markers, numStyles) {
   var index = 0;
   var count = markers.length;
+  // show cluster counter using also visibility attribute
+  for (var i=0; i<markers.length; i++) { if(  markers[i].visible == false ) count--; }
   var dv = count;
   while (dv !== 0) {
     dv = parseInt(dv / 10, 10);
